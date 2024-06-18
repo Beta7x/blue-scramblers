@@ -1,0 +1,30 @@
+{
+  "name": "capstone-api",
+  "version": "1.0.0",
+  "description": "API for capstone project",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node ./src/interfaces/http/server.js",
+    "dev": "node --watch ./src/interfaces/http/server.js",
+    "studio": "npx prisma studio",
+    "deploy": "space push"
+  },
+  "keywords": [
+    "API"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/hapi": "^21.3.10",
+    "@prisma/client": "^5.15.0",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "joi": "^17.13.1",
+    "jsonwebtoken": "^9.0.2",
+    "yarn": "^1.22.22"
+  },
+  "devDependencies": {
+    "prisma": "^5.15.0"
+  }
+}

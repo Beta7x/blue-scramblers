@@ -1,0 +1,23 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 0
+micros:
+  - name: jagat-capstone
+    src: ./
+    engine: nodejs16
+    public_routes:
+      - "/api/*"
+    presets:
+      env:
+        - name: JWT_SECRET
+          description: Secret key for generate and decode JWT
+        - name: JWT_EXPIRATION
+          description: Expiration time for JWT
+        - name: DATABASE_URL
+          description: Database instance url
+    primary: true
+    commands:
+      # remote server command
+      # - bash ./remote.sh
+      - npm install
+    run: npm run start
+    dev: npm run dev

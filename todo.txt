@@ -1,0 +1,32 @@
+Create Articles #!
+Delete Articles
+Update Articles
+Get all Articles
+Get Articles by Id
+
+Create User (register)
+Update User
+Delete User
+Get all Users
+Get User by Id
+Get User by Email
+
+Create auth login
+
+Create Travel
+Update Travel
+Delete Travel
+Get all Travel
+Get Travel by Id
+
+Create Booking
+Update Booking
+Delete Booking
+Get all Booking
+Get Booking by UserId
+
+Create Review
+Update Review
+Delete Review
+Get all Review
+Get Review by Id
