@@ -15,7 +15,7 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(uuid())
+  id        String    @unique @id @default(uuid())
   email     String    @unique
   name      String    @db.VarChar(100)
   role      Role      @default(USER)
@@ -32,11 +32,11 @@ model User {
 }
 
 model Travel {
-  id          String    @id @default(uuid())
+  id          String    @unique @id @default(uuid())
   name        String
   price       Int
-  image       String
-  description String
+  imageUrl    String    @map("image_url")
+  description String    @db.LongText
   location    String
   isDelete    Boolean   @default(false) @map("is_delete")
   createdAt   DateTime  @default(now()) @map("created_at")
@@ -49,7 +49,7 @@ model Travel {
 }
 
 model Booking {
-  id          String    @id @default(uuid())
+  id          String    @unique @id @default(uuid())
   user        User      @relation(fields: [userId], references: [id])
   travel      Travel    @relation(fields: [travelId], references: [id])
   userId      String    @map("user_id")
@@ -64,7 +64,7 @@ model Booking {
 }
 
 model Review {
-  id        String    @id @default(uuid())
+  id        String    @unique @id @default(uuid())
   user      User      @relation(fields: [userId], references: [id])
   travel    Travel    @relation(fields: [travelId], references: [id])
   userId    String    @map("user_id")
@@ -80,10 +80,10 @@ model Review {
 }
 
 model Article {
-  id          String   @id @default(uuid())
+  id          String   @unique @id @default(uuid())
   title       String
-  description String
-  image       String
+  description String   @db.LongText
+  imageUrl    String   @map("image_url")
   author      String
   isDelete    Boolean  @default(false)
   createdAt   DateTime @default(now()) @map("created_at")

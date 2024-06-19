@@ -3,7 +3,7 @@ class Travel {
     id,
     name,
     price,
-    image,
+    imageUrl,
     description,
     location,
     createdAt,
@@ -12,7 +12,7 @@ class Travel {
     this.id = id;
     this.name = name;
     this.price = price;
-    this.image = image;
+    this.imageUrl = imageUrl;
     this.description = description;
     this.location = location;
     this.createdAt = createdAt;

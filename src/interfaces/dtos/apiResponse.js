@@ -5,7 +5,7 @@ class APIResponse {
     this.error = error;
   }
 
-  static success(message = "Operation successful", data) {
+  static success(message = "Operation successful", data = null) {
     return new APIResponse(message, data);
   }
 

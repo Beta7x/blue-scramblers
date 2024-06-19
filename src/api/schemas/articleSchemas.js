@@ -8,8 +8,8 @@ const createArticleSchema = Joi.object({
   description: Joi.string().required().messages({
     "string.empty": "description is required",
   }),
-  image: Joi.string().required().messages({
-    "string.empty": "image is required",
+  image: Joi.any().required().messages({
+    "any.empty": "image is required",
   }),
   author: Joi.string().max(100).required().messages({
     "string.empty": "author is required",

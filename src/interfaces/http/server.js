@@ -4,6 +4,7 @@ const userRoutes = require("../../api/routes/userRoute");
 const authRoutes = require("../../api/routes/authRoute");
 const testRoute = require("../../api/routes/testRoute");
 const articleRoute = require("../../api/routes/articleRoute");
+const travelRoute = require("../../api/routes/travelRoute");
 
 const init = async () => {
   const server = Hapi.server({
@@ -15,6 +16,7 @@ const init = async () => {
   server.route(userRoutes);
   server.route(testRoute);
   server.route(articleRoute);
+  server.route(travelRoute);
 
   await server.start();
   console.info("Server running on %s", server.info.uri);

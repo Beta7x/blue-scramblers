@@ -1,4 +1,4 @@
-const testController = require("../controllers/testController");
+const testController = require("../../interfaces/http/controllers/testController");
 
 module.exports = [
   {

@@ -4,11 +4,12 @@ const prisma = require("./prismaClient");
 class TravelRepository {
   async createTravel(data) {
     const travel = await prisma.travel.create({ data });
+
     return new Travel(
       travel.id,
       travel.name,
       travel.price,
-      travel.image,
+      travel.imageUrl,
       travel.description,
       travel.location,
       travel.createdAt,
@@ -17,7 +18,9 @@ class TravelRepository {
   }
 
   async getTravelById(id) {
-    const travel = await prisma.travel.findUnique({ where: { id } });
+    const travel = await prisma.travel.findFirst({
+      where: { id, AND: { isDelete: false } },
+    });
     if (travel) {
       return new Travel(
         travel.id,
@@ -27,7 +30,7 @@ class TravelRepository {
         travel.description,
         travel.location,
         travel.createdAt,
-        travel.updatedat,
+        travel.updatedAt,
       );
     }
 
@@ -56,6 +59,7 @@ class TravelRepository {
     const travels = await prisma.travel.findMany({
       where: { isDelete: false },
     });
+
     return travels.map(
       (travel) =>
         new Travel(
@@ -69,6 +73,15 @@ class TravelRepository {
           travel.updatedAt,
         ),
     );
+  }
+
+  async deleteTravel(id) {
+    await prisma.travel.update({
+      where: { id },
+      data: { isDelete: true },
+    });
+
+    return true;
   }
 }
 
